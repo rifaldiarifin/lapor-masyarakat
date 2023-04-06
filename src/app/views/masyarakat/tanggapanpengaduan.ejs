@@ -1,0 +1,73 @@
+<div class="header-page">
+    <h1>Tanggapan Pengaduan</h1>
+    <div class="box dsp-flex">
+        <div class="parent-dropdown bottom-left mrgn-l-10">
+            <div class="dropdown-input" data-dpkey="filter-laporan,btn-primary" tabindex="0">
+                <span>This Week</span>
+                <div class="icon icons8-filled back"></div>
+            </div>
+            <div class="dropdown-box" data-dpkey="filter-laporan,dropdown"
+                data-dpanim="slide-bottom-on,slide-bottom-off">
+                <ul class="list-box single-select">
+                    <li class="li active">Today</li>
+                    <li class="li">Yesterday</li>
+                    <li class="li">This Week</li>
+                    <li class="li">This Month</li>
+                    <li class="li">This Year</li>
+                </ul>
+                <button class="btn-regular second mrgn-x-10 mrgn-t-10">
+                    <p>Custom Date</p>
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="content-page pad-10 mrgn-y-10">
+    <% if (laporanSelesai.length !== 0) { %>
+    <p class="mrgn-clear mrgn-b-10 font-size-14 disabled-text-1 font-weg-500">Beberapa laporan anda yang telah ditanggapi oleh pihak</p>
+    <div class="table-box" style="--colm-width: 1fr 150px 180px">
+        <div class="thead">
+            <div class="tr">
+                <div class="td">Review</div>
+                <div class="td center">Status</div>
+                <div class="td center">Action</div>
+            </div>
+        </div>
+        <div class="tbody scrollbar-off">
+                <% for( let x = 0; x < laporanSelesai.length; x++ ) { %>
+                    <div class="tr">
+                        <div class="td pad-10 overflow-hidden">
+                            <div class="box dsp-flex align-itms-center gap-20 mrgn-b-10">
+                                <h5 class="mrgn-clear font-size-16 font-weg-700">Judul : <%= laporanSelesai[x].judul %></h5><span class="font-size-13 font-weg-500 disabled-text-2 nowrap"><%= laporanSelesai[x].waktuPengaduan %>. <%= laporanSelesai[x].tanggalPengaduan %></span>
+                                <div class="box dsp-flex align-itms-center">
+                                    <div class="box dsp-flex align-itms-center mrgn-l-10">
+                                        <div class="row-view mrgn-r-20">
+                                            <div class="image-icon"></div>
+                                            <div class="video-icon"></div>
+                                            <div class="more-icon" data-amount="+4"></div>
+                                        </div>
+                                    </div>
+                                    <p class="mrgn-clear font-size-12 font-weg-500 disabled-text-1">Terdapat 6 Files</p>
+                                </div>
+                            </div>
+                            <p class="mrgn-clear font-size-13 font-weg-500 line-heg-20 text-elips nowrap overflow-hidden"><%= laporanSelesai[x].keterangan %></p>
+                        </div>
+                        <div class="td center">
+                            <div class="tag success" style="font-size: 10px; text-transform: capitalize;">Selesai</div>
+                        </div>
+                        <div class="td center">
+                            <button class="btn-filled info morp-1" onclick="openPage('/home/tanggapanpengaduan/rinciantanggapan', 'content', 'fadein')" data-btnlabel="Lihat Rincian"></button>
+                        </div>
+                    </div>
+                <% } %>
+            </div>
+        </div>
+        <% } else { %>
+            <h1 class="font-size-18 font-weg-600 disabled-text-1 mrgn-y-20 mrgn-x-10">belum ada laporan yang selesai.</h1>
+        <% } %>
+    <div class="footer-content">
+        <a href="/masyarakat/help" class="hyperlink">
+            <div class="icons8-filled inquiry"></div>Butuh bantuan?
+        </a>
+    </div>
+</div>

@@ -1,0 +1,23 @@
+body{
+    overflow-x: hidden;
+}
+
+nav .navlink{
+    width: 100%;
+    margin: auto 0;
+}
+
+nav .end-nav{
+    position: relative;
+}
+nav .end-nav .dropdown-box{
+    width: 400px;
+    height: fit-content;
+    bottom: -10px;
+    left: 90px;
+}
+
+nav .end-nav .dropdown-box .circle-view{
+    width: 90px;
+    border-radius: 50%;
+}

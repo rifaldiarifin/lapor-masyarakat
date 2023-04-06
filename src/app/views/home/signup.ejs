@@ -1,0 +1,293 @@
+<div class="form-box">
+    <div class="form-content-banner">
+        <button type="button" style="--heg: 36px;" class="btn-filled solid" onclick="interAlertConfirm({title : 'Sign In', description : 'Anda yakin meninggalkan form ini?', alertType : 'warning', accept : () => backToSignin()})" data-btnlabel="Sign In"></button>
+        <div class="box dsp-flex fl-colm gap-20 mrgn-b-20" style="margin-top: 40px;">
+            <h1 class="font-size-22 mrgn-clear font-weg-700" id="step-label" style="color: white;">Langkah 1</h1>
+            <p class="font-size-12 font-weg-500 mrgn-clear" id="step-description" style="color: white;">Masukan data sesuai dengan Kartu KTP anda.</p>
+        </div>
+        <div class="timeline-step" style="margin-top: auto; margin-bottom: 40px;">
+            <div class="step now">
+                <div class="time-point">1</div>
+                <div class="time-description">Informasi Dasar</div>
+            </div>
+            <div class="step">
+                <div class="time-point">2</div>
+                <div class="time-description">Lokasi & Alamat</div>
+            </div>
+            <div class="step">
+                <div class="time-point">3</div>
+                <div class="time-description">Nomor Telepon</div>
+            </div>
+            <div class="step">
+                <div class="time-point">4</div>
+                <div class="time-description">Tahap Penyelesaian</div>
+            </div>
+        </div>
+    </div>
+    <form class="multiple-form" id="multiple-form" action="/signup/buatakun" method="post">
+        <div class="tab-form active">
+            <div class="header-form">
+                <!-- <p class="mrgn-clear font-size-12 font-weg-600 disabled-text-1 mrgn-r-10">Belum punya akun?</p><button type="button" class="btn-filled solid morp-1" data-btnlabel="Sign Up"></button> -->
+            </div>
+            <div class="content-form">
+                <div class="company-logo dsp-flex" style="border: 1px solid var(--third-color); width: fit-content; border-radius: 50%; padding: 4px;">
+                    <img src="img/logos/teamreport-logo-gradient2.png" alt="" style="margin: 0;">
+                </div>
+                <p class="font-size-13 font-weg-600 disabled-text-1 mrgn-clear">Signup</p>
+                <h1 class="title">Masukan Informasi Personal</h1>
+                <div class="box dsp-flex fl-colm gap-16">
+                    <div class="box dsp-flex gap-10">
+                        <div class="input-field default icon" data-validatormode="offline" data-type="number" style="width: 100%; max-width: 500px;">
+                            <div class="icons8-regular pincode"></div>
+                            <input name="nik" maxlength="16" aria-label="Nomor Induk Kependudukan" autocomplete="off"/>
+                            <span data-msginput=" / Cannot be empty!">NIK</span>
+                            <span class="show-pass"></span>
+                        </div>
+                        <div class="input-field default icon" data-validatormode="offline" data-type="text" style="width: 100%; max-width: 500px;">
+                            <div class="icons8-regular user"></div>
+                            <input name="username" maxlength="16" aria-label="Username" autocomplete="off"/>
+                            <span data-msginput=" / Cannot be empty!">Username</span>
+                            <span class="show-pass"></span>
+                        </div>
+                    </div>
+    
+                    <div class="box dsp-flex gap-10">
+                        <div class="input-field default icon" data-validatormode="offline" data-type="text" style="width: 100%; max-width: 500px;">
+                            <div class="icons8-regular ball-point-pen"></div>
+                            <input name="nama_depan" aria-label="Nama Depan" autocomplete="off"/>
+                            <span data-msginput=" / Cannot be empty!">Nama Depan</span>
+                            <span class="show-pass"></span>
+                        </div>
+                        <div class="input-field default icon" data-validatormode="offline" data-type="text" style="width: 100%; max-width: 500px;">
+                            <div class="icons8-regular ball-point-pen"></div>
+                            <input name="nama_belakang" aria-label="Nama Belakang" autocomplete="off"/>
+                            <span data-msginput=" / Cannot be empty!">Nama Belakang</span>
+                            <span class="show-pass"></span>
+                        </div>
+                    </div>
+    
+                    <div class="box dsp-flex gap-10">
+                        <div class="input-field default icon p-match" data-validatormode="offline" data-type="password" style="width: 100%; max-width: 500px;">
+                            <div class="icons8-regular password"></div>
+                            <input name="password" aria-label="Password" autocomplete="off"/>
+                            <span data-msginput=" / Cannot be empty!">Password</span>
+                            <span class="show-pass"></span>
+                        </div>
+                        <div class="input-field default icon s-match" data-validatormode="offline" data-type="password" style="width: 100%; max-width: 500px;">
+                            <div class="icons8-regular password"></div>
+                            <input aria-label="Konfirmasi Password" autocomplete="off"/>
+                            <span data-msginput=" / Cannot be empty!">Ulangi Password</span>
+                            <span class="show-pass"></span>
+                        </div>
+                    </div>
+
+                    <div class="box dsp-flex gap-10">
+                        <div class="input-field default icon" data-validatormode="offline" data-type="email" style="width: 100%; max-width: 500px;">
+                            <div class="icons8-regular mail"></div>
+                            <input name="email" aria-label="Email" autocomplete="off"/>
+                            <span data-msginput=" / Cannot be empty!">Email</span>
+                            <span class="show-pass"></span>
+                        </div>
+                        <div class="input-field default icon" data-validatormode="offline" data-type="date" style="width: 100%; max-width: 500px;">
+                            <div class="icons8-regular calendar"></div>
+                            <input name="tanggal_lahir" aria-label="Date" />
+                            <span data-msginput=" / Cannot be empty!">Tanggal Lahir</span>
+                            <span class="show-pass"></span>
+                        </div>
+                    </div>
+                    
+                </div>
+                <div class="end-input">
+                    <div class="end-input">
+                        <div class="box dsp-flex justify-end">
+                            <!-- <button type="button" style="width: 150px;" class="btn-filled default-gradient" data-btnlabel="Sign In"></button> -->
+                            <button type="button" style="width: 150px;" class="btn-filled default-gradient next" onclick="pageform('next', 0)" data-btnlabel="Lanjut"></button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-form">
+                <a href="/masyarakat/help" class="hyperlink">
+                    <div class="icons8-filled inquiry"></div>Butuh bantuan?
+                </a>
+                <!-- <div class="copyright-box">
+                    <a href="#" class="hyperlink dark" style="font-size: 12px;">
+                        Website Terms
+                    </a>
+                    <a href="#" class="hyperlink dark" style="font-size: 12px;">
+                        Privacy Policy
+                    </a>
+                    <a href="#" class="hyperlink dark" style="font-size: 12px;">
+                        Accessibility Statement
+                    </a>
+                </div> -->
+            </div>
+        </div>
+        <div class="tab-form">
+            <div class="header-form"></div>
+            <div class="content-form">
+                <div class="company-logo dsp-flex" style="border: 1px solid var(--third-color); width: fit-content; border-radius: 50%; padding: 4px;">
+                    <img src="img/logos/teamreport-logo-gradient2.png" alt="" style="margin: 0;">
+                </div>
+                <p class="font-size-13 font-weg-600 disabled-text-1 mrgn-clear">Signup</p>
+                <h1 class="title">Masukan Lokasi & Alamat</h1>
+                <div class="box dsp-flex fl-colm gap-16">
+
+                    <div class="box dsp-flex gap-10">
+                        <div class="input-field default icon" data-validatormode="offline" data-type="text" style="width: 100%; max-width: 500px;">
+                            <div class="icons8-regular location"></div>
+                            <input name="provinsi"  aria-label="Provinsi" autocomplete="off"/>
+                            <span data-msginput=" / Cannot be empty!">Provinsi</span>
+                            <span class="show-pass"></span>
+                        </div>
+                        <div class="input-field default icon" data-validatormode="offline" data-type="text" style="width: 100%; max-width: 500px;">
+                            <div class="icons8-regular city"></div>
+                            <input name="kota"  aria-label="Kota/Kabupaten" autocomplete="off"/>
+                            <span data-msginput=" / Cannot be empty!">Kota/Kabupaten</span>
+                            <span class="show-pass"></span>
+                        </div>
+                    </div>
+
+                    <div class="box dsp-flex gap-10">
+                        <div class="input-field default icon" data-validatormode="offline" data-type="text" style="width: 100%; max-width: 500px;">
+                            <div class="icons8-regular location"></div>
+                            <input name="kecamatan"  aria-label="Kecamatan" autocomplete="off"/>
+                            <span data-msginput=" / Cannot be empty!">Kecamatan</span>
+                            <span class="show-pass"></span>
+                        </div>
+
+                        <div class="input-field default icon" data-validatormode="offline" data-type="text" style="width: 100%; max-width: 500px;">
+                            <div class="icons8-regular location"></div>
+                            <input name="kelurahan"  aria-label="Kelurahan" autocomplete="off"/>
+                            <span data-msginput=" / Cannot be empty!">Kelurahan</span>
+                            <span class="show-pass"></span>
+                        </div>
+                    </div>
+
+                    <div class="input-field default icon" data-validatormode="offline" data-type="text" style="width: 100%; max-width: 500px;">
+                        <div class="icons8-regular address"></div>
+                        <input name="alamat"  aria-label="Alamat" autocomplete="off"/>
+                        <span data-msginput=" / Cannot be empty!">Alamat</span>
+                        <span class="show-pass"></span>
+                    </div>
+
+                </div>
+                <div class="end-input">
+                    <div class="box dsp-flex justify-beetwen">
+                        <button type="button" style="width: 150px;" class="btn-regular default-gradient prev" onclick="pageform('prev', 1)">
+                            <p>Kembali</p>
+                        </button>
+                        <button type="button" style="width: 150px;" class="btn-filled default-gradient next" onclick="pageform('next', 1)" data-btnlabel="Lanjut"></button>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-form">
+                <a href="/masyarakat/help" class="hyperlink">
+                    <div class="icons8-filled inquiry"></div>Butuh bantuan?
+                </a>
+            </div>
+        </div>
+        <div class="tab-form">
+            <div class="header-form"></div>
+            <div class="content-form">
+                <div class="company-logo dsp-flex" style="border: 1px solid var(--third-color); width: fit-content; border-radius: 50%; padding: 4px;">
+                    <img src="img/logos/teamreport-logo-gradient2.png" alt="" style="margin: 0;">
+                </div>
+                <p class="font-size-13 font-weg-600 disabled-text-1 mrgn-clear">Signup</p>
+                <h1 class="title">Masukan Nomor Telepon</h1>
+                <div class="input-field default icon" data-validatormode="online" data-type="phone" style="width: 100%; max-width: 500px;">
+                    <div class="icons8-regular iphonese"></div>
+                    <input name="no_telepon" maxlength="14"  aria-label="Nomor Telepon" autocomplete="off" />
+                    <span data-msginput=" / Cannot be empty!">Nomor Telepon</span>
+                    <span class="show-pass"></span>
+                </div>
+                <div class="end-input">
+                    <div class="box dsp-flex justify-beetwen">
+                        <button type="button" style="width: 150px;" class="btn-regular default-gradient prev" onclick="pageform('prev', 2)">
+                        <p>Kembali</p></button>
+                        <button type="button" style="width: 150px;" class="btn-filled default-gradient next" onclick="pageform('next', 2)" data-btnlabel="Lanjut"></button>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-form">
+                <a href="/masyarakat/help" class="hyperlink">
+                    <div class="icons8-filled inquiry"></div>Butuh bantuan?
+                </a>
+            </div>
+        </div>
+        <!-- <div class="tab-form">
+            <div class="header-form">
+            </div>
+            <div class="content-form">
+                <div class="company-logo dsp-flex" style="border: 1px solid var(--third-color); width: fit-content; border-radius: 50%; padding: 4px;">
+                    <img src="img/logos/teamreport-logo-gradient2.png" alt="" style="margin: 0;">
+                </div>
+                <p class="font-size-13 font-weg-600 disabled-text-1 mrgn-clear">Signup</p>
+                <h1 class="title">Atur Foto Profil</h1>
+                <div class="box dsp-flex fl-colm align-itms-center gap-20 rounded20 pad-20" style="border: 1px solid var(--third-color);">
+                    <label class="image-upload" for="form-image">
+                        <img src="img/avatars/avatar1.png" alt="" class="circle-view">
+                        <input type="file" name="form-avatar" id="form-image" hidden>
+                        <span class="icons8-regular camera"></span>
+                    </label>
+                    <h1 class="font-size-24 font-weg-500 mrgn-clear">Rifaldi Arifin</h1>
+                </div>
+                <div class="end-input">
+                    <div class="box dsp-flex justify-beetwen">
+                        <button type="button" style="width: 150px;" class="btn-regular default-gradient prev" onclick="pageform('prev', 3)">
+                            <p>Kembali</p></button>
+                        <button type="button" style="width: 150px;" class="btn-filled default-gradient next" onclick="pageform('next', 3)" data-btnlabel="Lanjut"></button>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-form">
+                <a href="/masyarakat/help" class="hyperlink">
+                    <div class="icons8-filled inquiry"></div>Butuh bantuan?
+                </a>
+            </div>
+        </div> -->
+        <div class="tab-form">
+            <div class="header-form">
+            </div>
+            <div class="content-form">
+                <div class="company-logo dsp-flex" style="border: 1px solid var(--third-color); width: fit-content; border-radius: 50%; padding: 4px;">
+                    <img src="img/logos/teamreport-logo-gradient2.png" alt="" style="margin: 0;">
+                </div>
+                <p class="font-size-13 font-weg-600 disabled-text-1 mrgn-clear">Signup</p>
+                <h1 class="title">Penyelesaian Akhir</h1>
+                <p class="font-size-14 mrgn-clear font-weg-400">Sebelum anda lanjut, harap membaca Syarat & Ketentuan.</p>
+                <!-- <a href="#" class="company-logo mrgn-b-6" style="font-size: 22px;">
+                    <div class="box mrgn-t-4">lapor<span style="font-size: 24px;">Masyarakat</span></div>
+                </a> -->
+                <h2 class="font-weg-600 mrgnc">Syarat & Ketentuan.</h2>
+                <div class="box">
+                    <p class="font-weg-600 mrgn-clear mrgn-b-6">Lorem Ipsum</p>
+                    <p class="font-size-14 line-heg-2 mrgn-clear mrgn-b-10" style="white-space: break-spaces;">Lorem laborum cillum excepteur est veniam. Deserunt veniam nulla aute quis Lorem labore nulla deserunt nisi aute veniam fugiat. Fugiat fugiat ex irure et aute velit do Lorem aliquip. Velit sit magna mollit occaecat irure veniam quis mollit elit irure do. Dolor in occaecat incididunt id sit sint consequat ut. Et laboris eu ea nulla velit velit ea ea cupidatat amet deserunt nulla proident Lorem. Ullamco cillum dolor laboris proident ullamco cupidatat nostrud dolore Lorem dolore ullamco tempor excepteur exercitation.</p>
+                </div>
+                <div class="box">
+                    <p class="font-weg-600 mrgn-clear mrgn-b-6">Dolor Sit Amet</p>
+                    <p class="font-size-14 line-heg-2 mrgn-clear mrgn-b-10" style="white-space: break-spaces;">Eu proident dolor dolore et aliquip adipisicing ad. Nulla sint do ullamco aute pariatur officia nisi nulla qui mollit. Minim duis excepteur sit do et mollit id. Eiusmod mollit culpa nulla dolor aute ullamco. Et ad tempor dolor ut duis nulla dolor. Culpa sint aliqua dolor ullamco amet proident dolore aute veniam dolor consectetur nulla.</p>
+                </div>
+                <div class="box">
+                    <p class="font-weg-600 mrgn-clear mrgn-b-6">Consectetur Adipisicing</p>
+                    <p class="font-size-14 line-heg-2 mrgn-clear" style="white-space: break-spaces;">Minim cupidatat incididunt anim ut. Enim quis nisi fugiat do excepteur adipisicing consectetur sunt nisi exercitation proident esse mollit ullamco. Officia culpa fugiat velit do do enim officia officia labore ut id eu ipsum id.</p>
+                </div>
+                <div class="check-field">
+                    <input type="checkbox" name="checkbox" >Saya setuju dengan syarat & ketentuan yang ada.
+                </div>
+                <div class="end-input">
+                    <div class="box dsp-flex justify-beetwen">
+                        <button type="button" style="width: 150px;" class="btn-regular default-gradient prev" onclick="pageform('prev', 3)">
+                            <p>Kembali</p></button>
+                        <button type="submit" style="width: 150px;" onclick="createaccount()" class="btn-filled default-gradient" data-btnlabel="Lanjut"></button>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-form">
+                <a href="/masyarakat/help" class="hyperlink">
+                    <div class="icons8-filled inquiry"></div>Butuh bantuan?
+                </a>
+            </div>
+        </div>
+    </form>
+</div>

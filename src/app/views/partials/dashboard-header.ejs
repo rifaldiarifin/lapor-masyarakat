@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Rifaldi Arifin">
+    <meta name="description" content="Melaporkan dan Menanggapi semua keluhan Masyarakat, untuk mewujudkan komunikasi yang baik antar Masyarakat">
+    <meta name="keywords" content="laporpadang, masyarakatpadang, padang, indonesia">
+    <meta name="theme-color" content="#f2768d">
+    <link rel="icon" href="img/logos/teamreport-logo-gradient2.png" type="image/icon type">
+    <title><%= title %></title>
+    <link rel="stylesheet" href="interact/Interact.css">
+    <script src="https://unpkg.com/validator@latest/validator.min.js"></script>
+    <script type="text/javascript" src="validator.min.js"></script>
+    <script src="jquery/jquery-3.6.1.js"></script>
+    <script src="jquery/jquery-3.6.1.min.js"></script>
+</head>
+<% 
+    let classContainer = containerSPA;
+    if(theme.length > 0) classContainer = `${containerSPA} ${theme}`;
+%>
+<body class="<%- classContainer %>">

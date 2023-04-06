@@ -1,0 +1,56 @@
+<div class="header-page">
+    <h1>Edit Laporan</h1>
+</div>
+<div class="content-page">
+    <p class="font-size-14 disabled-text-1 font-weg-600">Mohon isi from ini dengan benar dan tepat!</p>
+    <form action="/home/laporanpengaduan/editlaporan/submiteditlaporan" id="editlaporan" method="post" style="z-index: 1;">
+        <input type="hidden" name="pengaduanUID" value="<%= rincian.pengaduanUID %>" id="">
+        <div class="box">
+            <p class="font-size-14 font-weg-600">Apa yang ingin anda laporkan?</p>
+            <div class="input-field default icon valid" data-type="text" data-validatormode="offline" tabindex="0" style="width: 100%; max-width: 500px; min-width: 250px;">
+                <div class="icons8-regular ball-point-pen"></div>
+                <input name="judul" value="<%= rincian.judul %>" aria-label="Password Field" />
+                <span style="background-color: var(--second-color);" data-msginput=" / Cannot be empty!">Judul</span>
+                <span class="show-pass"></span>
+            </div>
+        </div>
+        <!-- <div class="box">
+            <p class="font-size-14 font-weg-600">Waktu dari laporan</p>
+            <div class="input-field default icon" data-type="text" data-validatormode="offline" tabindex="0" style="width: 100%; max-width: 500px; min-width: 250px;">
+                <div class="icons8-regular clock"></div>
+                <input name="waktu" aria-label="Password Field" />
+                <span style="background-color: var(--second-color);" data-msginput=" / Cannot be empty!">Waktu</span>
+                <span class="show-pass"></span>
+            </div>
+        </div> -->
+        <div class="box">
+            <p class="font-size-14 font-weg-600">Jelaskan keterangan dari laporan anda.</p>
+            <div class="textarea-field default icon valid" style="width: 100%; max-width: 500px; min-width: 250px;" tabindex="0">
+                <div class="icons8-regular ball-point-pen"></div>
+                <textarea name="keterangan"><%= rincian.keterangan %></textarea>
+                <span style="background-color: var(--second-color);" data-msginput=" / Cannot be empty!">Keterangan</span>
+            </div>
+        </div>
+        <!-- <div class="box">
+            <script>
+                const laporanFile2 = document.getElementById("laporanfile");
+                const parentfile = laporanFile2.previousElementSibling;
+                laporanFile2.addEventListener("change", (e) => {
+                    parentfile.dataset.btnlabel = laporanFile2.value + " added";
+                    console.log("asd")
+                })
+            </script>
+            <p class="font-size-14 font-weg-600">Upload file laporan</p>
+            <label class="btn-filled second" for="laporanfile" data-btnLabel="Upload File" style="width: fit-content;">
+                <div class="icons8-filled fullimage"></div>
+            </label>
+            <input type="file" name="laporanfile" multiple id="laporanfile" style="display: none;">
+        </div> -->
+        <button type="submit" class="btn-filled default-gradient mrgn-t-30" onclick="editlaporan()" data-btnLabel="Kirim Laporan"></button>
+    </form>
+    <div class="footer-content">
+        <a href="/masyarakat/help" class="hyperlink">
+            <div class="icons8-filled inquiry"></div>Butuh bantuan?
+        </a>
+    </div>
+</div>

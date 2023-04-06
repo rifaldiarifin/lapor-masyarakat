@@ -1,0 +1,77 @@
+<% 
+    let avatar = accountsession.fotoProfile;
+    if(avatar == "empty"){
+        avatar = "blank_user.png";
+    }     
+%>
+
+<div class="content-page pad-10 mrgn-y-10">
+    <div class="box dsp-flex fl-colm" style="max-width: 600px;">
+        <div class="box dsp-grid align-itms-center rounded10 gap-20" style=" height: 100px; grid-template-columns: auto 1fr auto;">
+            <img src="img/avatars/<%= avatar %>" alt="" class="circle-view" style="width: 80px;">
+            <div class="box dsp-flex fl-colm gap-2">
+                <h1 class="font-size-24 font-weg-600 mrgn-clear"><%= accountsession.namaLengkap %></h1>
+            </div>
+            <button class="btn-filled second icon-only">
+                <div class="icons8-regular ball-point-pen"></div>
+            </button>
+        </div>
+        <span class="mrgn-y-30 dsp-block mrgn-x-10" style="border-bottom: 1px solid var(--third-color);"></span>
+        <div class="box">
+            <h3 class="font-size-18 font-weg-700 mrgn-clear mrgn-b-20">Info Personal</h3>
+            <div class="collapse-box pad-x-10" style="--heg: 60px;">
+                <div class="coll-head" style="gap: 0;">
+                    <div class="coll-icon trnsp">
+                        <div class="icons8-regular user"></div>
+                    </div>
+                    <p class="font-size-13">Info Detail</p> 
+                    <div class="coll-btn"></div>
+                </div>
+                <div class="coll-body" style="color: var(--disabled-color3); padding: 0 60px 20px;">
+                    <div class="box dsp-flex fl-colm gap-20">
+                        <div class="box dsp-flex fl-colm gap-14">
+                            <h5 class="font-size-13 font-weg-600 disabled-text-1 mrgn-clear">NIK</h5>
+                            <p class="font-size-13 font-weg-500 mrgn-clear"><%= nik %></p>
+                        </div>
+                        <div class="box dsp-flex fl-colm gap-14">
+                            <h5 class="font-size-13 font-weg-600 disabled-text-1 mrgn-clear">Nama Panggilan</h5>
+                            <p class="font-size-13 font-weg-500 mrgn-clear"><%= accountsession.namaPanggilan %></p>
+                        </div>
+                        <div class="box dsp-flex fl-colm gap-14">
+                            <h5 class="font-size-13 font-weg-600 disabled-text-1 mrgn-clear">Username</h5>
+                            <p class="font-size-13 font-weg-500 mrgn-clear"><%= accountsession.username %></p>
+                        </div>
+                        <div class="box dsp-flex fl-colm gap-14">
+                            <h5 class="font-size-13 font-weg-600 disabled-text-1 mrgn-clear">Email</h5>
+                            <p class="font-size-13 font-weg-500 mrgn-clear"><%= accountsession.email %></p>
+                        </div>
+                        <div class="box dsp-flex fl-colm gap-14">
+                            <h5 class="font-size-13 font-weg-600 disabled-text-1 mrgn-clear">Telpon</h5>
+                            <p class="font-size-13 font-weg-500 mrgn-clear"><%= accountsession.noTelepon %></p>
+                        </div>
+                        <div class="box dsp-flex fl-colm gap-14">
+                            <h5 class="font-size-13 font-weg-600 disabled-text-1 mrgn-clear">Tanggal Lahir</h5>
+                            <p class="font-size-13 font-weg-500 mrgn-clear"><%= accountsession.tanggalLahir %></p>
+                        </div>
+                        <div class="box dsp-flex fl-colm gap-14">
+                            <h5 class="font-size-13 font-weg-600 disabled-text-1 mrgn-clear">Alamat</h5>
+                            <p class="font-size-13 font-weg-500 mrgn-clear"><%= accountsession.alamat %></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <span class="mrgn-y-30 dsp-block mrgn-x-10" style="border-bottom: 1px solid var(--third-color);"></span>
+        <div class="box">
+            <h3 class="font-size-18 font-weg-700 mrgn-clear mrgn-b-20">Keluar dari Perangkat</h3>
+            <button class="btn-filled default-gradient" onclick="interAlertConfirm({title: 'Signout', description: 'Anda yakin keluar?', info: 'info', accept: () => signout()})" data-btnLabel="Signout">
+                <div class="icons8-regular exit"></div>
+            </button>
+        </div>
+    </div>
+    <div class="footer-content">
+        <a href="/masyarakat/help" class="hyperlink">
+            <div class="icons8-filled inquiry"></div>Butuh bantuan?
+        </a>
+    </div>
+</div>

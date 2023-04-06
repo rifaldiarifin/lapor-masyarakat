@@ -1,0 +1,104 @@
+<%- include("../partials/dashboard-header.ejs") %>
+
+<% 
+    let avatar = accountsession.fotoProfile;
+    if(avatar == "empty"){
+        avatar = "blank_user.png";
+    }     
+%>
+
+  <header class="separator only bottom">
+    <div class="box dsp-flex align-itms-center">
+        <a href="#" class="company-logo">
+            <img src="img/logos/teamreport-logo-gradient2.png" alt="">lapor<span>Masyarakat</span>
+        </a>
+        <div class="input-field transparent icon mrgn-l-20" data-type="text" tabindex="0">
+            <div class="icons8-regular search"></div>
+            <input name="" id="" aria-label="Search Engine" placeholder="Search">
+        </div>
+    </div>
+    <div class="box dsp-flex align-itms-center justify-end">
+        <button class="btn-filled default-gradient morp-2 mrgn-r-30" onclick="openPage({path: '/home/laporanpengaduan/buatlaporan', containerID: 'content', animType: 'fadein'}); setBuatLaporanPoint();" data-btnlabel="Buat Laporan" tabindex="0">
+            <div class="icons8-filled plus"></div>
+        </button>
+        <button class="btn-filled solid morp-1 icon-only" onclick="openPage({
+            path: '/home/infopersonal',
+            containerID: 'content',
+            animType: 'fadein'
+        })" tabindex="0">
+            <div class="icons8-regular settings"></div>
+        </button>
+        <div class="parent-dropdown bottom-left">
+            <div class="header-profile mrgn-l-20" tabindex="0" data-dpkey="profile,btn-primary"
+                aria-label="Profile & Edit">
+                <img src="img/avatars/<%= avatar %>" alt="cat" class="avatar">
+                <p><%= accountsession.namaLengkap %></p>
+                <div class="dp-icon icons8-filled back"></div>
+            </div>
+            <div class="dropdown-box rounded20" data-dpkey="profile,dropdown"
+                data-dpanim="slide-bottom-on,slide-bottom-off">
+                <div class="box pad-20">
+                    <div class="box dsp-flex align-itms-center mrgn-b-10">
+                        
+                        <img src="img/avatars/<%= avatar %>" alt="cat" class="circle-view">
+                        <h1 class="mrgn-l-20 mrgn-r-10 font-size-18 font-weg-400 nowrap text-elips fl-1 overflow-hidden"><%= accountsession.namaLengkap %></h1>
+                    </div>
+                    <div class="box mrgn-t-20">
+                        <ul class="list-box">
+                            <li class="li morp-1 disappear" style="height: 40px;" onclick="openPage({path: '/home/infopersonal', containerID: 'content', animType: 'fadein'})">
+                                <div class="icons8-regular user mrgn-r-10 pointer-none" style="--ratio: 22px"></div><span class="font-weg-500 pointer-none">Buka Profil</span>
+                            </li>
+                            <li class="li morp-1 disappear" style="height: 40px;" onclick="interAlertConfirm({title: 'Signout', description: 'Anda yakin keluar?', info: 'info', accept: () => signout()})">
+                                <div class="icons8-regular exit mrgn-r-10 pointer-none" style="--ratio: 22px"></div><span class="font-weg-500 pointer-none">Keluar</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+<nav>
+    <div class="nav-group-horiz" id="main-nav-horiz">
+        <div onclick="openPage({path: '/home/beranda', containerID: 'content'})" class="list" tabindex="0">
+            <span>Beranda</span>
+        </div>
+        <div onclick="openPage({path: '/home/laporanpengaduan', containerID: 'content'})" class="list" tabindex="0">
+            <span>Laporan Pengaduan</span>
+        </div>
+        <div onclick="openPage({path: '/home/tanggapanpengaduan', containerID: 'content'})" class="list" tabindex="0">
+            <span>Tanggapan Pengaduan</span>
+        </div>
+        <div onclick="openPage({path: '/home/tentang', containerID: 'content'})" class="list" tabindex="0">
+            <span>Tentang</span>
+        </div>
+    </div>
+</nav>
+<div class="content">
+    <div class="content-screen" id="content">
+      <div class="header-page"></div>
+      <div class="content-page welcome">
+          <div class="box dsp-flex fl-colm justify-center align-itms-start" style="height: 100%;">
+              <h1>Selamat Siang, <%= accountsession.namaPanggilan %>.</h1>
+              <p class="font-size-13 font-weg-500 disabled-text-1">Melaporkan dan Menanggapi semua keluhan Masyarakat, untuk
+                  mewujudkan komunikasi yang baik antar Masyarakat.</p>
+              <br>
+              <p class="font-size-14 font-weg-600">Ada yang ingin dilaporkan?</p>
+              <button class="btn-filled default-gradient"
+                  onclick="openPage({path: '/home/laporanpengaduan/buatlaporan', containerID: 'content', animType: 'fadein'}); setBuatLaporanPoint();"
+                  data-btnlabel="Ajukan Laporan Pengaduan" aria-label="Ajukan Laporan">
+                  <div class="icons8-filled document"></div>
+              </button>
+          </div>
+          <div class="footer-content">
+              <a href="/masyarakat/help" class="hyperlink">
+                  <div class="icons8-filled inquiry"></div>Butuh bantuan?
+              </a>
+          </div>
+      </div>
+    </div>
+</div>
+<script src="interact/interact.js"></script>
+<script src="interact/interact.renderui.js"></script>
+<script src="js/masyarakat/masyarakat.js"></script>
+<%- include("../partials/dashboard-footer.ejs") %> 

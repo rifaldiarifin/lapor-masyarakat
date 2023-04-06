@@ -1,0 +1,29 @@
+<div class="header-form">
+</div>
+<div class="content-form">
+    <div class="company-logo dsp-flex" style="border: 1px solid var(--third-color); width: fit-content; border-radius: 50%; padding: 4px;">
+        <img src="img/logos/teamreport-logo-gradient2.png" alt="" style="margin: 0;">
+    </div>
+    <p class="font-size-13 font-weg-600 disabled-text-1 mrgn-clear">Signup</p>
+    <h1 class="title">Atur Foto Profil</h1>
+    <div class="box dsp-flex fl-colm align-itms-center gap-20 rounded20 pad-20" style="border: 1px solid var(--third-color);">
+        <label class="image-upload" for="form-image">
+            <img src="img/avatars/avatar1.png" alt="" class="circle-view">
+            <input type="file" name="form-avatar" id="form-image" hidden>
+            <span class="icons8-regular camera"></span>
+        </label>
+        <h1 class="font-size-24 font-weg-500 mrgn-clear">Rifaldi Arifin</h1>
+    </div>
+    <div class="end-input">
+        <div class="box dsp-flex justify-beetwen">
+            <button type="button" style="width: 150px;" id="prev" class="btn-regular default-gradient" onclick="openPage('/signup/nomortelepon', 'multiple-form', 'top')">
+                <p>Kembali</p></button>
+            <button type="button" style="width: 150px;" id="next" class="btn-filled default-gradient" onclick="openPage('/signup/penyelesaianakhir', 'multiple-form', 'bottom', () => signupCollectData())" data-btnlabel="Lanjut"></button>
+        </div>
+    </div>
+</div>
+<div class="footer-form">
+    <a href="/masyarakat/help" class="hyperlink">
+        <div class="icons8-filled inquiry"></div>Butuh bantuan?
+    </a>
+</div>

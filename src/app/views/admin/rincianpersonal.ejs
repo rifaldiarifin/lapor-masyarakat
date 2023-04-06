@@ -1,0 +1,83 @@
+<div class="header-page">
+    <h1>Tambahkan Akun</h1>
+</div>
+<div class="content-page">
+    <p class="font-size-14 disabled-text-1 font-weg-600">Mohon isi from ini dengan benar!</p>
+    <form action="/admin/datapersonal/tambahakun/createaccount" class="dsp-flex fl-colm gap-20" id="createaccount" method="post" style="z-index: 1; width: 100%; min-width: 300px; max-width: 600px;">
+        <!-- <div class="box dsp-flex fl-colm gap-10 mrgn-t-10" style="width: 100%;">
+            <h1 class="font-size-13 disabled-text-1 font-weg-600 mrgn-clear">Nomor Induk Kependudukan</h1>
+            <p class="font-consolas font-size-16 mrgn-clear"></p>
+        </div> -->
+        <!-- <span class="mrgn-y-10 dsp-block mrgn-x-10" style="border-bottom: 1px solid var(--third-color);"></span> -->
+        <div class="box dsp-flex gap-10 mrgn-t-10">
+            <div class="box dsp-flex fl-colm gap-10" style="width: 100%;">
+                <h1 class="font-size-13 disabled-text-1 font-weg-600 mrgn-clear">Nama Lengkap</h1>
+                <p class=" font-size-16 mrgn-clear"><%= personalData.namaLengkap %></p>
+            </div>
+        </div>
+        <span class="mrgn-y-10 dsp-block mrgn-x-10" style="border-bottom: 1px solid var(--third-color);"></span>
+        <div class="box dsp-flex gap-10">
+            <div class="box dsp-flex fl-colm gap-10" style="width: 100%;">
+                <h1 class="font-size-13 disabled-text-1 font-weg-600 mrgn-clear">Username</h1>
+                <p class=" font-size-16 mrgn-clear"><%= personalData.username %></p>
+            </div>
+            <div class="box dsp-flex fl-colm gap-10" style="width: 100%;">
+                <h1 class="font-size-13 disabled-text-1 font-weg-600 mrgn-clear">No Telepon</h1>
+                <p class=" font-size-16 mrgn-clear"><%= personalData.noTelepon %></p>
+            </div>
+        </div>
+        <span class="mrgn-y-10 dsp-block mrgn-x-10" style="border-bottom: 1px solid var(--third-color);"></span>
+        <div class="box dsp-flex gap-10">
+            <div class="box dsp-flex fl-colm gap-10" style="width: 100%;">
+                <h1 class="font-size-13 disabled-text-1 font-weg-600 mrgn-clear">Provinsi</h1>
+                <p class=" font-size-16 mrgn-clear"><%= personalLokasi.provinsi %></p>
+            </div>
+            <div class="box dsp-flex fl-colm gap-10" style="width: 100%;">
+                <h1 class="font-size-13 disabled-text-1 font-weg-600 mrgn-clear">Kota</h1>
+                <p class=" font-size-16 mrgn-clear"><%= personalLokasi.kota %></p>
+            </div>
+        </div>
+        <span class="mrgn-y-10 dsp-block mrgn-x-10" style="border-bottom: 1px solid var(--third-color);"></span>
+        <div class="box dsp-flex gap-10">
+            <div class="box dsp-flex fl-colm gap-10" style="width: 100%;">
+                <h1 class="font-size-13 disabled-text-1 font-weg-600 mrgn-clear">Kecamatan</h1>
+                <p class=" font-size-16 mrgn-clear"><%= personalLokasi.kecamatan %></p>
+            </div>
+            <div class="box dsp-flex fl-colm gap-10" style="width: 100%;">
+                <h1 class="font-size-13 disabled-text-1 font-weg-600 mrgn-clear">Kelurahan</h1>
+                <p class=" font-size-16 mrgn-clear"><%= personalLokasi.kelurahan %></p>
+            </div>
+        </div>
+        <span class="mrgn-y-10 dsp-block mrgn-x-10" style="border-bottom: 1px solid var(--third-color);"></span>
+        <div class="box dsp-flex gap-10">
+            <div class="box dsp-flex fl-colm gap-10" style="width: 100%;">
+                <h1 class="font-size-13 disabled-text-1 font-weg-600 mrgn-clear">Email</h1>
+                <p class=" font-size-16 mrgn-clear"><%= personalData.email %></p>
+            </div>
+        </div>
+        <span class="mrgn-y-10 dsp-block mrgn-x-10" style="border-bottom: 1px solid var(--third-color);"></span>
+        <div class="box dsp-flex gap-10">
+            <div class="box dsp-flex fl-colm gap-10" style="width: 100%;">
+                <h1 class="font-size-13 disabled-text-1 font-weg-600 mrgn-clear">Tanggal Lahir</h1>
+                <p class=" font-size-16 mrgn-clear"><%= personalData.tanggalLahir %></p>
+            </div>
+            <div class="box dsp-flex fl-colm gap-10" style="width: 100%;">
+                <h1 class="font-size-13 disabled-text-1 font-weg-600 mrgn-clear">Level</h1>
+                <p class=" font-size-16 mrgn-clear"><%= personalLevel.level %></p>
+            </div>
+        </div>
+        <span class="mrgn-y-10 dsp-block mrgn-x-10" style="border-bottom: 1px solid var(--third-color);"></span>
+        <div class="box dsp-flex gap-10">
+            <div class="box dsp-flex fl-colm gap-10" style="width: 100%;">
+                <h1 class="font-size-13 disabled-text-1 font-weg-600 mrgn-clear">Address</h1>
+                <p class=" font-size-16 mrgn-clear"><%= personalData.address %></p>
+            </div>
+        </div>
+        <button type="button" class="btn-filled default-gradient mrgn-t-30" data-btnLabel="Kembali" onclick="openPage({path: '/admin/datapersonal', containerID: 'content', animType: 'fadeout'})" style="width: fit-content;"></button>
+    </form>
+    <div class="footer-content">
+        <a href="/masyarakat/help" class="hyperlink">
+            <div class="icons8-filled inquiry"></div>Butuh bantuan?
+        </a>
+    </div>
+</div>

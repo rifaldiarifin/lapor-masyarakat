@@ -1,0 +1,124 @@
+<% 
+    let avatar3 = fotoProfile;
+    if(avatar3 == "empty"){
+        avatar3 = "blank_user.png";
+    }     
+%>
+
+<div class="header-page">
+    <h1>Rincian Laporan</h1>
+</div>
+<div class="content-page pad-10 mrgn-y-10">
+    <div class="box dsp-grid gap-20" style="grid-template-columns: 1.3fr 1fr; height: 100%;">
+        <form action="/petugas/tanggapilaporan" id="tanggapilaporan" method="post" class="box z-1">
+            <div class="box">
+                <h3 class="font-size-18 font-weg-700">Laporan :</h3>
+                <div class="box dsp-flex align-itms-center gap-20">
+                    <img src="img/avatars/<%= avatar3 %>" alt="" class="circle-view">
+                    <div class="box dsp-flex fl-colm gap-6">
+                        <p class="font-size-16 nowrap font-weg-700 mrgn-clear"><%= nama %></p>
+                        <p class="font-size-12 nowrap font-weg-700 font-consolas space-06 disabled-text-1 mrgn-clear"><%= nik %></p>
+                    </div>
+                </div>
+            </div>
+            <span class="mrgn-y-30 dsp-block mrgn-x-10" style="border-bottom: 1px solid var(--third-color);"></span>
+            <div class="box">
+                <h3 class="font-size-18 font-weg-700">Judul :</h3>
+                <p class="font-size-16 line-heg-26 font-weg-500"><%= laporan.judul %></p>
+            </div>
+            <span class="mrgn-y-30 dsp-block mrgn-x-10" style="border-bottom: 1px solid var(--third-color);"></span>
+            <div class="box">
+                <h3 class="font-size-18 font-weg-700">Keterangan :</h3>
+                <p class="font-size-16 line-heg-26 font-weg-500" style="white-space: break-spaces;"><%= laporan.keterangan %></div>
+            <span class="mrgn-y-30 dsp-block mrgn-x-10" style="border-bottom: 1px solid var(--third-color);"></span>
+            <div class="box">
+                <p class="font-size-16 font-weg-700">Waktu & Tanggal Laporan dibuat</p>
+                <div class="box dsp-flex gap-20">
+                    <div class="box dsp-flex align-itms-center">
+                        <div class="icons8-regular clock"></div><span class="font-size-13 font-weg-500 disabled-text-1" style="margin-left: 4px;"><%= laporan.waktuPengaduan %></span>
+                    </div>
+                    <div class="box dsp-flex align-itms-center">
+                        <div class="icons8-regular calendar"></div><span class="font-size-13 font-weg-500 disabled-text-1" style="margin-left: 4px;"><%= laporan.tanggalPengaduan %></span>
+                    </div>
+                </div>
+            </div>
+            <span class="mrgn-y-30 dsp-block mrgn-x-10" style="border-bottom: 1px solid var(--third-color);"></span>
+            <div class="box">
+                <p class="font-size-16 font-weg-700">Berikan tanggapan ke yang melaporkan</p>
+                <div class="textarea-field default icon" tabindex="0" style="width: 100%;">
+                    <div class="icons8-regular ball-point-pen"></div>
+                    <input type="hidden" name="pengaduanUID" value="<%= laporan.pengaduanUID %>">
+                    <textarea name="tanggapan" required></textarea>
+                    <span style="background-color: var(--second-color);" data-msginput=" / Cannot be empty!">Input Here</span>
+                </div>
+            </div>
+            <div class="box mrgn-y-10">
+                <p class="font-size-16 font-weg-700">Jika laporan yang diajukan ini terbukti benar dan akurat, Anda bisa menyalakan centang dibawah untuk memverifikasi laporan.</p>
+                <div class="check-field">
+                    <input type="checkbox" name="checkbox">Verifikasi Laporan
+                </div>
+            </div>
+            <div class="box dsp-flex gap-10 mrgn-t-30">
+                <button type="button" class="btn-filled second"onclick="tanggapiLaporanProses('/petugas/laporanditanggapi')" data-btnlabel="Konfirmasi & Selesai"></button>
+            </div>
+        </form>
+        <div class="box">
+            <div class="viewer-box">
+                <div class="main-view no-view">
+
+                </div>
+                <div class="box dsp-flex align-itms-center mrgn-10">
+                    <div class="icons8-regular document"></div>
+                    <p class="font-size-13 font-weg-400 disabled-text-1 mrgn-clear" style="margin-left: 4px;">Terdapat 1 file</p>
+                </div>
+                <%
+                    let classFileLaporan = ` empty-views`;
+                    if(laporan.fileUpload){
+                        classFileLaporan = "";
+                    }
+                %>
+                <div class="gallery-view<%= classFileLaporan %>">
+                    <%
+                        const asd2 = laporan.fileUpload.toString().split(".");
+                        const fileLapor = asd2[asd2.length - 1].toLowerCase();
+                    %>
+                    <% if ((fileLapor == "png") || (fileLapor == "jpg") || (fileLapor == "jpeg")) { %>
+                        <div class="list" data-filetype="image" data-filesrc="filelaporan/picture/<%= laporan.fileUpload %>">
+                            <img src="filelaporan/picture/<%= laporan.fileUpload %>" alt="htr">
+                            <div class="parent-dropdown bottom-left">
+                                <div class="icon icons8-filled menuvertical cursr-pointer" tabindex="0" data-dpkey="previewlist1,btn-primary" style="filter: brightness(99);"></div>
+                                <div class="dropdown-box pad-10" data-dpkey="previewlist1,dropdown"
+                                data-dpanim="slide-bottom-on,slide-bottom-off">
+                                    <ul class="list-box">
+                                        <a class="li disappear" href="filelaporan/picture/<%= laporan.fileUpload %>" download>
+                                            <div class="icons8-filled downloadingupdates mrgn-r-6"></div>Unduh
+                                        </a>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    <% } else if ((fileLapor == "mp4") || (fileLapor == "mkv")) { %>
+                        <div class="list" data-filetype="video" data-filesrc="filelaporan/video/<%= laporan.fileUpload %>">
+                            <div class="parent-dropdown bottom-left">
+                                <div class="icon icons8-filled menuvertical cursr-pointer" tabindex="0" data-dpkey="previewlist6,btn-primary" style="filter: brightness(99);"></div>
+                                <div class="dropdown-box pad-10" data-dpkey="previewlist6,dropdown"
+                                data-dpanim="slide-bottom-on,slide-bottom-off">
+                                    <ul class="list-box">
+                                        <a class="li disappear" href="filelaporan/video/<%= laporan.fileUpload %>" download>
+                                            <div class="icons8-filled downloadingupdates mrgn-r-6"></div>Unduh
+                                        </a>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    <% } %>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="footer-content">
+        <a href="/masyarakat/help" class="hyperlink">
+            <div class="icons8-filled inquiry"></div>Butuh bantuan?
+        </a>
+    </div>
+</div>

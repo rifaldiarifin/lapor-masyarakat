@@ -1,0 +1,62 @@
+<div class="header-form"></div>
+<div class="content-form">
+    <div class="company-logo dsp-flex" style="border: 1px solid var(--third-color); width: fit-content; border-radius: 50%; padding: 4px;">
+        <img src="img/logos/teamreport-logo-gradient2.png" alt="" style="margin: 0;">
+    </div>
+    <p class="font-size-13 font-weg-600 disabled-text-1 mrgn-clear">Signup</p>
+    <h1 class="title">Masukan Lokasi & Alamat</h1>
+    <div class="box dsp-flex fl-colm gap-16">
+
+        <div class="box dsp-flex gap-10">
+            <div class="input-field default icon" data-validatormode="offline" data-type="text" tabindex="0" style="width: 100%; max-width: 500px;">
+                <div class="icons8-regular location"></div>
+                <input name="provinsi" id="" aria-label="Provinsi" autocomplete="off"/>
+                <span data-msginput=" / Cannot be empty!">Provinsi</span>
+                <span class="show-pass"></span>
+            </div>
+            <div class="input-field default icon" data-validatormode="offline" data-type="text" tabindex="0" style="width: 100%; max-width: 500px;">
+                <div class="icons8-regular city"></div>
+                <input name="kota" id="" aria-label="Kota/Kabupaten" autocomplete="off"/>
+                <span data-msginput=" / Cannot be empty!">Kota/Kabupaten</span>
+                <span class="show-pass"></span>
+            </div>
+        </div>
+
+        <div class="box dsp-flex gap-10">
+            <div class="input-field default icon" data-validatormode="offline" data-type="text" tabindex="0" style="width: 100%; max-width: 500px;">
+                <div class="icons8-regular location"></div>
+                <input name="kecamatan" id="" aria-label="Kecamatan" autocomplete="off"/>
+                <span data-msginput=" / Cannot be empty!">Kecamatan</span>
+                <span class="show-pass"></span>
+            </div>
+
+            <div class="input-field default icon" data-validatormode="offline" data-type="text" tabindex="0" style="width: 100%; max-width: 500px;">
+                <div class="icons8-regular location"></div>
+                <input name="kelurahan" id="" aria-label="Kelurahan" autocomplete="off"/>
+                <span data-msginput=" / Cannot be empty!">Kelurahan</span>
+                <span class="show-pass"></span>
+            </div>
+        </div>
+
+        <div class="input-field default icon" data-validatormode="offline" data-type="text" tabindex="0" style="width: 100%; max-width: 500px;">
+            <div class="icons8-regular address"></div>
+            <input name="alamat" id="" aria-label="Alamat" autocomplete="off"/>
+            <span data-msginput=" / Cannot be empty!">Alamat</span>
+            <span class="show-pass"></span>
+        </div>
+
+    </div>
+    <div class="end-input">
+        <div class="box dsp-flex justify-beetwen">
+            <button type="button" style="width: 150px;" id="prev" class="btn-regular default-gradient" onclick="openPage('/signup/informasipersonal', 'multiple-form', 'top')">
+                <p>Kembali</p>
+            </button>
+            <button type="button" style="width: 150px;" id="next" class="btn-filled default-gradient" onclick="openPage('/signup/nomortelepon', 'multiple-form', 'bottom', () => nomortelepon())" data-btnlabel="Lanjut"></button>
+        </div>
+    </div>
+</div>
+<div class="footer-form">
+    <a href="/masyarakat/help" class="hyperlink">
+        <div class="icons8-filled inquiry"></div>Butuh bantuan?
+    </a>
+</div>

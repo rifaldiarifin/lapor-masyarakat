@@ -1,0 +1,109 @@
+<div class="header-page">
+    <h1>Laporan</h1>
+    <div class="box dsp-flex">
+        <button onclick="openPage({path: '/home/laporanpengaduan/buatlaporan', containerID: 'content', animType: 'fadein'})" class="btn-filled second morp-3" data-btnLabel="Buat Laporan">
+            <div class="icons8-filled plus"></div>
+        </button>
+        <div class="parent-dropdown bottom-left mrgn-l-10">
+            <div class="dropdown-input" data-dpkey="filter-laporan,btn-primary" tabindex="0">
+                <span>This Week</span>
+                <div class="icon icons8-filled back"></div>
+            </div>
+            <div class="dropdown-box" data-dpkey="filter-laporan,dropdown"
+                data-dpanim="slide-bottom-on,slide-bottom-off">
+                <ul class="list-box single-select">
+                    <li class="li" class="active">Today</li class="li">
+                    <li class="li">Yesterday</li class="li">
+                    <li class="li">This Week</li class="li">
+                    <li class="li">This Month</li class="li">
+                    <li class="li">This Year</li class="li">
+                </ul>
+                <button class="btn-regular second mrgn-x-10 mrgn-t-10">
+                    <p>Custom Date</p>
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="content-page pad-10 mrgn-y-10">
+    <% if (datalaporan.length !== 0) { %>
+    <p class="mrgn-clear mrgn-b-10 font-size-14 disabled-text-1 font-weg-500">Beberapa laporan anda buat, Anda bisa mengubah isi atau data dari laporan, sebelum pihak menanggapinya.</p>
+    <div class="table-box" style="--colm-width: 1fr 150px 90px">
+        <div class="thead">
+            <div class="tr">
+                <div class="td">Review</div>
+                <div class="td center">Status</div>
+                <div class="td center">Action</div>
+            </div>
+        </div>
+        <div class="tbody scrollbar-off">
+                <% for( let x = 0; x < datalaporan.length; x++ ) { %>
+                    <div class="tr" data-pengaduanUID="<%= datalaporan[x].pengaduanUID %>">
+                        <div class="td pad-10 overflow-hidden">
+                            <div class="box dsp-flex align-itms-center gap-20 mrgn-b-10">
+                                <h5 class="mrgn-clear font-size-16 font-weg-700">Judul : <%= datalaporan[x].judul %></h5><span class="font-size-13 font-weg-500 disabled-text-2 nowrap"><%= datalaporan[x].waktu %>. <%= datalaporan[x].tanggal %></span>
+                                <div class="box dsp-flex align-itms-center">
+                                            <%
+                                                const asd2 = datalaporan[x].fileUpload.toString().split(".");
+                                                const fileLapor = asd2[asd2.length - 1].toLowerCase();
+                                            %>
+                                    <% if((datalaporan[x].fileUpload.length !== 'Empty') || (datalaporan[x].fileUpload.length !== 0)){ %>
+                                        <div class="box dsp-flex align-itms-center mrgn-l-10">
+                                            <div class="row-view mrgn-r-20">
+                                                <% if ((fileLapor == "png") || (fileLapor == "jpg") || (fileLapor == "jpeg")) { %>
+                                                    <div class="image-icon"></div>
+                                                <% } else if((fileLapor == "mp4") || (fileLapor == "mkv")) { %>
+                                                    <div class="video-icon"></div>`
+                                                <% } else { %>
+                                                    <div class="more-icon" data-amount="1?"></div>
+                                                <% } %>
+                                            </div>
+                                        </div>
+                                        <p class="mrgn-clear font-size-12 font-weg-500 disabled-text-1">Terdapat 1 Files</p>
+                                    <% } else {%>
+                                        <div class="box dsp-flex align-itms-center">
+                                            <div class="box dsp-flex align-itms-center mrgn-l-10">
+                                            </div>
+                                            <p class="mrgn-clear font-size-12 font-weg-500 disabled-text-1">Tidak ada Files</p>
+                                        </div>
+                                    <% } %>
+                                </div>
+                            </div>
+                            <p class="mrgn-clear font-size-13 font-weg-500 line-heg-20 text-elips nowrap overflow-hidden"><%= datalaporan[x].keterangan %></p>
+                        </div>
+                        <div class="td center">
+                            <div class="tag info" style="font-size: 10px; text-transform: capitalize;">Pending</div>
+                        </div>
+                        <div class="td parent-dropdown center bottom-left">
+                            <button class="btn-filled solid icon-only morp-1" data-dpkey="actiontab<%= x %>,btn-primary">
+                                <div class="icons8-filled more"></div>
+                            </button>
+                            <div class="dropdown-box pad-10" data-dpkey="actiontab<%= x %>,dropdown"
+                                data-dpanim="slide-bottom-on,slide-bottom-off">
+                                <ul class="list-box">
+                                    <li class="li disappear" onclick="openPage({path: '/home/laporanpengaduan/rincianlaporan/<%= datalaporan[x].pengaduanUID %>', containerID: 'content', animType: 'fadein'})">
+                                        <div class="icons8-regular pointer-none info mrgn-r-6"></div>Lihat Rincian
+                                    </li>
+                                    <li class="li disappear" onclick="openPage({path: 'home/laporanpengaduan/editlaporan/<%= datalaporan[x].pengaduanUID %>', containerID: 'content', animType: 'fadein'})">
+                                        <div class="icons8-regular pointer-none ball-point-pen mrgn-r-6"></div>Edit Laporan
+                                    </li>
+                                    <li class="li disappear" onclick="interAlertConfirm({title : 'Hapus Laporan', description : 'Anda yakin ingin menghapus laporan ini?, ini bersifat permanen.', alertType : 'warning', accept: () => deleteLaporan('<%= datalaporan[x].pengaduanUID %>'), reject: () => {}})">
+                                        <div class="icons8-regular pointer-none trash mrgn-r-6"></div>Hapus Laporan
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                <% } %>
+            </div>
+        </div>
+        <% } else { %>
+            <h1 class="font-size-18 font-weg-600 disabled-text-1 mrgn-y-20 mrgn-x-10">Anda belum membuat satupun laporan.</h1>
+            <!-- <p class="mrgn-clear mrgn-b-10 font-size-14 disabled-text-1 font-weg-500"></p> -->
+        <% } %>
+    <div class="footer-content">
+        <a href="/masyarakat/help" class="hyperlink">
+            <div class="icons8-filled inquiry"></div>Butuh bantuan?
+        </a>
+    </div>
+</div>

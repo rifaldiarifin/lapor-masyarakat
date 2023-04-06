@@ -1,0 +1,109 @@
+<div class="header-page">
+    <h1>Data Personal</h1>
+    <div class="box dsp-flex gap-10">
+        <button class="btn-filled second morp-3" data-btnLabel="Refresh">
+            <div class="icons8-filled reboot"></div>
+        </button>
+        <button class="btn-filled second morp-3" data-btnLabel="Tambah Akun" onclick="openPage({path: '/admin/datapersonal/tambahakun', containerID: 'content', animType: 'fadein'})">
+            <div class="icons8-filled plus"></div>
+        </button>
+        <div class="parent-dropdown bottom-left">
+            <div class="dropdown-input" data-dpkey="filter-laporan,btn-primary" tabindex="0">
+                <span>Minggu Ini</span>
+                <div class="icon icons8-filled back"></div>
+            </div>
+            <div class="dropdown-box" data-dpkey="filter-laporan,dropdown"
+                data-dpanim="slide-bottom-on,slide-bottom-off">
+                <ul class="list-box single-select">
+                    <li class="li" class="active">Today</li class="li">
+                    <li class="li">Yesterday</li class="li">
+                    <li class="li">This Week</li class="li">
+                    <li class="li">This Month</li class="li">
+                    <li class="li">This Year</li class="li">
+                </ul>
+                <button class="btn-regular second mrgn-x-10 mrgn-t-10">
+                    <p>Custom Date</p>
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="content-page pad-10 mrgn-y-10">
+    <% if(users.length !== 0) { %>
+        <div class="table-box" style="--colm-width: 1fr minmax(60px, 250px) 150px 90px">
+            <div class="thead">
+                <div class="tr">
+                    <div class="td">Review</div>
+                    <div class="td">Email</div>
+                    <div class="td center">Status</div>
+                    <div class="td center"></div>
+                </div>
+            </div>
+            <div class="tbody scrollbar-off">
+                <% for( let x = 0; x < users.length; x++ ) { %>
+                    <% 
+                        let avatar2 = users[x].fotoProfile;
+                        if(avatar2 == "empty"){
+                            avatar2 = "blank_user.png";
+                        }     
+                    %>
+                    <div class="tr">
+                        <div class="td pad-10 overflow-hidden">
+                            <div class="box dsp-flex align-itms-center gap-14">
+                                <img src="img/avatars/<%= avatar2 %>" style="width: 40px;" alt="<%= avatar2 %>" class="circle-view">
+                                <div class="box dsp-flex fl-colm gap-4">
+                                    <p class="font-weg-600 font-size-18 mrgn-clear"><%= users[x].namaLengkap %></p>
+                                    <p class="font-weg-500 font-size-14 space-1 font-consolas disabled-text-1 mrgn-clear">
+                                        <%= users[x].noTelepon %>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="td overflow-hidden">
+                            <p class="font-size-14 font-weg-500 mrgn-clear text-elips nowrap overflow-hidden"><%= users[x].email %></p>
+                        </div>
+                        <div class="td center">
+                            <div class="tag info" style="font-size: 10px; text-transform: capitalize;">
+                                <div class="icons8-regular circlefull mrgn-r-4" style="--ratio:8px"></div>Offline
+                            </div>
+                        </div>
+                        <div class="td parent-dropdown center bottom-left">
+                            <button class="btn-filled solid icon-only morp-1" data-dpkey="actiontab<%= x %>,btn-primary">
+                                <div class="icons8-filled more"></div>
+                            </button>
+                            <div class="dropdown-box pad-10" data-dpkey="actiontab<%= x %>,dropdown"
+                                data-dpanim="slide-bottom-on,slide-bottom-off">
+                                <ul class="list-box">
+                                    <li class="li disappear" onclick="openPage({
+                                        path: '/admin/datapersonal/rincianpersonal/<%= users[x].personalUID %>', 
+                                        containerID: 'content', 
+                                        animType: 'fadein'
+                                        })">
+                                        <div class="icons8-regular pointer-none info mrgn-r-6"></div>Rincian
+                                    </li>
+                                    <li class="li disappear" onclick="openPage({
+                                        path: '/admin/datapersonal/editakun/<%= users[x].personalUID %>',
+                                        containerID: 'content',
+                                        animType: 'fadein',
+                                    })">
+                                        <div class="icons8-regular pointer-none ball-point-pen mrgn-r-6"></div>Edit Akun
+                                    </li>
+                                    <li class="li disappear" onclick="interAlertConfirm({title: 'Hapus Akun', description: 'Anda yakin ingin menghapusnya? penghapusan ini bersifat permanen.', alertType: 'warning', accept: () => deleteAccount('<%= users[x].personalUID %>')})">
+                                        <div class="icons8-regular pointer-none trash mrgn-r-6"></div>Hapus Akun
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <% } %>
+                </div>
+            </div>
+    <% } else { %>
+
+    <% } %>
+    <div class="footer-content">
+        <a href="/masyarakat/help" class="hyperlink">
+            <div class="icons8-filled inquiry"></div>Butuh bantuan?
+        </a>
+    </div>
+</div>

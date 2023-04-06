@@ -1,0 +1,130 @@
+<div class="header-page">
+    <h1>Tambahkan Akun</h1>
+</div>
+<div class="content-page">
+    <p class="font-size-14 disabled-text-1 font-weg-600">Mohon isi from ini dengan benar!</p>
+    <form action="/admin/datapersonal/tambahakun/createaccount" class="dsp-flex fl-colm gap-20" id="createaccount" method="post" style="z-index: 1; width: fit-content;">
+        <div class="box dsp-flex gap-10">
+            <div class="input-field default icon" data-type="number" data-validatormode="offline" style="width: 100%; max-width: 500px; min-width: 250px;">
+                <div class="icons8-regular pincode"></div>
+                <input autocomplete="off" maxlength="16" name="nik" aria-label="Nomor Induk Kependudukan" required/>
+                <span style="background-color: var(--second-color);" data-msginput=" / Cannot be empty!">Nomor Induk Kependudukan</span>
+                <span class="show-pass"></span>
+            </div>
+        </div>
+        <div class="box dsp-flex gap-10">
+            <div class="input-field default icon" data-type="text" data-validatormode="offline" style="width: 100%; max-width: 245px; min-width: 70px;">
+                <div class="icons8-regular ball-point-pen"></div>
+                <input autocomplete="off" name="nama_depan" aria-label="Nama Depan" required/>
+                <span style="background-color: var(--second-color);" data-msginput=" / Cannot be empty!">Nama Depan</span>
+                <span class="show-pass"></span>
+            </div>
+            <div class="input-field default icon" data-type="text" data-validatormode="offline" style="width: 100%; max-width: 245px; min-width: 70px;">
+                <div class="icons8-regular ball-point-pen"></div>
+                <input autocomplete="off" name="nama_belakang" aria-label="Nama Belakang" required/>
+                <span style="background-color: var(--second-color);" data-msginput=" / Cannot be empty!">Nama Belakang</span>
+                <span class="show-pass"></span>
+            </div>
+        </div>
+        <div class="box dsp-flex gap-10">
+            <div class="input-field default icon" data-type="text" data-validatormode="offline" style="width: 100%; max-width: 245px; min-width: 70px;">
+                <div class="icons8-regular user"></div>
+                <input autocomplete="off" maxlength="20" name="username" aria-label="Username" required/>
+                <span style="background-color: var(--second-color);" data-msginput=" / Cannot be empty!">Username</span>
+                <span class="show-pass"></span>
+            </div>
+            <div class="input-field default icon" data-type="phone" data-validatormode="online" style="width: 100%; max-width: 245px; min-width: 70px;">
+                <div class="icons8-regular iphonese"></div>
+                <input autocomplete="off" maxlength="16" name="no_telepon" aria-label="No Telepon" required/>
+                <span style="background-color: var(--second-color);" data-msginput=" / Cannot be empty!">No Telepon</span>
+                <span class="show-pass"></span>
+            </div>
+        </div>
+        <div class="box dsp-flex gap-10">
+            <div class="input-field default icon p-match" data-validatormode="offline" data-type="password" style="width: 100%; max-width: 500px;">
+                <div class="icons8-regular password"></div>
+                <input name="password" aria-label="Password" autocomplete="off"required/>
+                <span data-msginput=" / Cannot be empty!">Password</span>
+                <span class="show-pass"></span>
+            </div>
+            <div class="input-field default icon s-match" data-validatormode="offline" data-type="password" style="width: 100%; max-width: 500px;">
+                <div class="icons8-regular password"></div>
+                <input aria-label="Konfirmasi Password" autocomplete="off"required/>
+                <span data-msginput=" / Cannot be empty!">Ulangi Password</span>
+                <span class="show-pass"></span>
+            </div>
+        </div>
+        <div class="box dsp-flex gap-10">
+            <div class="input-field default icon" data-type="text" data-validatormode="offline" style="width: 100%; max-width: 245px; min-width: 70px;">
+                <div class="icons8-regular location"></div>
+                <input autocomplete="off" maxlength="20" name="provinsi" aria-label="No Telepon" required/>
+                <span style="background-color: var(--second-color);" data-msginput=" / Cannot be empty!">Provinsi</span>
+                <span class="show-pass"></span>
+            </div>
+            <div class="input-field default icon" data-type="text" data-validatormode="offline" style="width: 100%; max-width: 245px; min-width: 70px;">
+                <div class="icons8-regular location"></div>
+                <input autocomplete="off" maxlength="20" name="kota" aria-label="No Telepon" required/>
+                <span style="background-color: var(--second-color);" data-msginput=" / Cannot be empty!">Kota</span>
+                <span class="show-pass"></span>
+            </div>
+        </div>
+        <div class="box dsp-flex gap-10">
+            <div class="input-field default icon" data-type="text" data-validatormode="offline" style="width: 100%; max-width: 245px; min-width: 70px;">
+                <div class="icons8-regular location"></div>
+                <input autocomplete="off" maxlength="20" name="kecamatan" aria-label="No Telepon" required/>
+                <span style="background-color: var(--second-color);" data-msginput=" / Cannot be empty!">Kecamatan</span>
+                <span class="show-pass"></span>
+            </div>
+            <div class="input-field default icon" data-type="text" data-validatormode="offline" style="width: 100%; max-width: 245px; min-width: 70px;">
+                <div class="icons8-regular address"></div>
+                <input autocomplete="off" maxlength="20" name="kelurahan" aria-label="No Telepon" required/>
+                <span style="background-color: var(--second-color);" data-msginput=" / Cannot be empty!">Kelurahan</span>
+                <span class="show-pass"></span>
+            </div>
+        </div>
+        <div class="box dsp-flex gap-10">
+            <div class="input-field default icon" data-type="email" data-validatormode="offline" style="width: 100%; max-width: 500px; min-width: 250px;">
+                <div class="icons8-regular mail"></div>
+                <input autocomplete="off" name="email" aria-label="No Telepon" required/>
+                <span style="background-color: var(--second-color);" data-msginput=" / Cannot be empty!">Email</span>
+                <span class="show-pass"></span>
+            </div>
+        </div>
+        <div class="box dsp-flex gap-10">
+            <div class="input-field default icon" data-type="date" data-validatormode="offline" style="width: 100%; max-width: 245px; min-width: 70px;">
+                <div class="icons8-regular calendar"></div>
+                <input autocomplete="off" maxlength="30" type="" name="tanggal_lahir" aria-label="Password Field">
+                <span style="background-color: var(--second-color);" data-msginput=" / Cannot be empty!">Tanggal Lahir</span>
+                <span class="show-pass"></span>
+            </div>
+            <div class="input-field default icon" data-type="combobox" data-validatormode="offline" style="width: 100%; max-width: 245px; min-width: 70px;">
+                <div class="icons8-regular user"></div>
+                <input autocomplete="off" maxlength="30" name="level" aria-label="Username" required/>
+                <span style="background-color: var(--second-color);" data-msginput=" / Cannot be empty!">Level</span>
+                <span class="show-pass"></span>
+                <div class="combobox">
+                    <div class="li disappear rpl-click" data-valuelist="Admin">
+                        <div class="icons8-regular user"></div>Admin</div>
+                    <div class="li disappear rpl-click" data-valuelist="Petugas">
+                        <div class="icons8-regular user"></div>Petugas</div>
+                    <div class="li disappear rpl-click" data-valuelist="Masyarakat">
+                        <div class="icons8-regular user"></div>Masyarakat</div>
+                </div>
+            </div>
+        </div>
+        <div class="box dsp-flex gap-10">
+            <div class="input-field default icon" data-type="text" data-validatormode="offline" style="width: 100%; max-width: 500px; min-width: 250px;">
+                <div class="icons8-regular address"></div>
+                <input autocomplete="off" name="alamat" aria-label="No Telepon" required/>
+                <span style="background-color: var(--second-color);" data-msginput=" / Cannot be empty!">Alamat</span>
+                <span class="show-pass"></span>
+            </div>
+        </div>
+        <button type="submit" class="btn-filled default-gradient mrgn-t-30" data-btnLabel="Tambah Akun" onclick="createAccountAsAdmin()" style="width: fit-content;"></button>
+    </form>
+    <div class="footer-content">
+        <a href="/masyarakat/help" class="hyperlink">
+            <div class="icons8-filled inquiry"></div>Butuh bantuan?
+        </a>
+    </div>
+</div>

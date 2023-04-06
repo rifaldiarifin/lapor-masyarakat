@@ -1,0 +1,98 @@
+<%- include("../partials/dashboard-header.ejs") %> 
+
+<% 
+    let avatar = accountsession.fotoProfile;
+    if(avatar == "empty"){
+        avatar = "blank_user.png";
+    }     
+%>
+
+<header class="separator only bottom">
+    <div class="box dsp-flex align-itms-center">
+        <a href="#" class="company-logo">
+            <img src="img/logos/teamreport-logo-gradient2.png" alt="">
+            <div class="box dsp-flex fl-colm gap-4">
+                <div class="box mrgn-t-4">lapor<span>Masyarakat</span></div>
+                <div class="tag default-gradient">Petugas</div>
+            </div>
+        </a>
+        <div class="input-field transparent icon mrgn-l-20" data-type="text" tabindex="0">
+            <div class="icons8-regular search"></div>
+            <input name="" id="" aria-label="Search Engine" placeholder="Search">
+        </div>
+    </div>
+    <div class="box dsp-flex align-itms-center justify-end">
+        <button class="btn-filled solid morp-1 icon-only" onclick="openPage({path: '/petugas/infopersonal',containerID: 'content',animType: 'fadein'})" tabindex="0">
+            <div class="icons8-regular settings"></div>
+        </button>
+        <div class="parent-dropdown bottom-left">
+            <div class="header-profile mrgn-l-20" tabindex="0" data-dpkey="profile,btn-primary"
+                aria-label="Profile & Edit">
+                <img src="img/avatars/<%= avatar %>" alt="cat" class="avatar">
+                <p><%= accountsession.namaPanggilan %></p>
+                <div class="dp-icon icons8-filled back"></div>
+            </div>
+            <div class="dropdown-box rounded20" data-dpkey="profile,dropdown"
+                data-dpanim="slide-bottom-on,slide-bottom-off">
+                <div class="box pad-20">
+                    <div class="box dsp-flex align-itms-center mrgn-b-10">
+                        <img src="img/avatars/<%= avatar %>" alt="cat" class="circle-view">
+                        <h1 class="mrgn-l-20 mrgn-r-10 font-size-18 font-weg-400 nowrap text-elips fl-1 overflow-hidden"><%= accountsession.namaLengkap %></h1>
+                    </div>
+                    <div class="box mrgn-t-20">
+                        <ul class="list-box">
+                            <li class="li morp-1 disappear" style="height: 40px;" onclick="openPage({path: '/petugas/infopersonal',containerID: 'content',animType: 'fadein'})">
+                                <div class="icons8-regular user mrgn-r-10 pointer-none" style="--ratio: 22px"></div><span class="font-weg-500 pointer-none">Buka Profil</span>
+                            </li>
+                            <li class="li morp-1 disappear" style="height: 40px;" onclick="interAlertConfirm({title : 'Signout', description : 'Anda yakin ingin keluar?', alertType : 'info', accept: () => signout()})">
+                                <div class="icons8-regular exit mrgn-r-10 pointer-none" style="--ratio: 22px"></div><span class="font-weg-500 pointer-none">Keluar</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+<nav>
+    <div class="nav-group-horiz" id="main-nav-horiz">
+        <div onclick="openPage({path: '/petugas/beranda',containerID: 'content'})" class="list" tabindex="0">
+            <span>Beranda</span>
+        </div>
+        <div onclick="openPage({path: '/petugas/datalaporan',containerID: 'content'})" class="list" tabindex="0">
+            <span>Data Laporan</span>
+        </div>
+        <div onclick="openPage({path: '/petugas/laporandiproses',containerID: 'content'})" class="list" tabindex="0">
+            <span>Laporan diproses</span>
+        </div>
+        <div onclick="openPage({path: '/petugas/laporanditanggapi',containerID: 'content'})" class="list" tabindex="0">
+            <span>Laporan ditanggapi</span>
+        </div>
+        <div onclick="openPage({path: '/petugas/tentang',containerID: 'content'})" class="list" tabindex="0">
+            <span>Tentang</span>
+        </div>
+    </div>
+</nav>
+<div class="content">
+    <div class="content-screen" id="content">
+        <div class="header-page"></div>
+        <div class="content-page welcome">
+            <div class="box dsp-flex fl-colm justify-center align-itms-start" style="height: 100%;">
+                <h1>Selamat Siang, <%= accountsession.namaPanggilan %>.</h1>
+                <p class="font-size-13 font-weg-500 disabled-text-1">Melaporkan dan Menanggapi semua keluhan
+                    Masyarakat, untuk
+                    mewujudkan komunikasi yang baik antar Masyarakat.</p>
+                <br>
+            </div>
+            <div class="footer-content">
+                <a href="/masyarakat/help" class="hyperlink">
+                    <div class="icons8-filled inquiry"></div>Butuh bantuan?
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="interact/interact.js"></script>
+<script src="interact/interact.renderui.js"></script>
+<script src="js/petugas/petugas.js"></script>
+<%- include("../partials/dashboard-footer.ejs") %>

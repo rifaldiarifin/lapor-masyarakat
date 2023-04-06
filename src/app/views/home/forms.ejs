@@ -1,0 +1,62 @@
+<%- include("../partials/form-header.ejs") %>
+
+<div class="content" id="content">
+    <div class="form-box fadeout-after">
+        <div class="form-content-banner">
+
+        </div>
+        <form class="single-form" action="/forms/signin" method="post">
+            <div class="header-form">
+                <p class="mrgn-clear font-size-12 font-weg-600 disabled-text-1 mrgn-r-10">Belum punya akun?</p>
+                <button type="button" class="btn-filled solid morp-1" onclick="openPage({
+                    path: '/signup', 
+                    containerID: 'content', 
+                    animType: 'fadein', 
+                    load: () => interTimelineStep(),
+                })" data-btnlabel="Sign Up"></button>
+            </div>
+            <div class="content-form">
+                <div class="company-logo dsp-flex" style="border: 1px solid var(--third-color); width: fit-content; border-radius: 50%; padding: 4px;">
+                    <img src="img/logos/teamreport-logo-gradient2.png" alt="" style="margin: 0;">
+                </div>
+                <p class="font-size-13 font-weg-600 disabled-text-1 mrgn-clear">Signin</p>
+                <h1 class="title">Selamat Datang Kembali</h1>
+                <div class="box dsp-flex fl-colm gap-16">
+                    <div class="input-field default icon" data-validatormode="offline" data-type="text" style="width: 100%; max-width: 500px; min-width: 250px;">
+                        <div class="icons8-regular ball-point-pen"></div>
+                        <input name="username" aria-label="Username" />
+                        <span data-msginput=" / Cannot be empty!">Username</span>
+                        <span class="show-pass"></span>
+                    </div>
+                    <div class="input-field default icon" data-validatormode="offline" data-type="password" style="width: 100%; max-width: 500px; min-width: 250px;">
+                        <div class="icons8-regular password"></div>
+                        <input name="password" aria-label="Password" />
+                        <span data-msginput=" / Cannot be empty!">Password</span>
+                        <span class="show-pass"></span>
+                    </div>
+                </div>
+                <div class="end-input">
+                    <button type="submit" class="btn-filled default-gradient" data-btnlabel="Sign In"></button>
+                </div>
+            </div>
+            <div class="footer-form">
+                <a href="/masyarakat/help" class="hyperlink">
+                    <div class="icons8-filled inquiry"></div>Butuh bantuan?
+                </a>
+                <div class="copyright-box">
+                    <a href="#" class="hyperlink dark" style="font-size: 12px;">
+                        Website Terms
+                    </a>
+                    <a href="#" class="hyperlink dark" style="font-size: 12px;">
+                        Privacy Policy
+                    </a>
+                    <a href="#" class="hyperlink dark" style="font-size: 12px;">
+                        Accessibility Statement
+                    </a>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
+<%- include("../partials/form-footer.ejs") %>
